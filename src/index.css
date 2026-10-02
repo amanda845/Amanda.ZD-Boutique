@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: 1rem;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-violet: var(--violet);
+  --color-violet-light: var(--violet-light);
+  --color-violet-glow: var(--violet-glow);
+  --font-sans: "Plus Jakarta Sans", "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+}
+
+/* PALETTE DE COULEURS : NOIR OBSIDIENNE & VIOLET LILAS HAUTE COUTURE */
+:root {
+  --radius: 0.75rem;
+
+  /* Fond et textes */
+  --background: #FAF8F6;
+  --foreground: #121118;
+
+  /* Cartes & Popovers */
+  --card: #FFFFFF;
+  --card-foreground: #121118;
+  --popover: #FFFFFF;
+  --popover-foreground: #121118;
+
+  /* Couleurs primaires : Noir de jais profond */
+  --primary: #0B0B0E;
+  --primary-foreground: #FFFFFF;
+
+  /* Couleurs secondaires : Lilas doux poudré */
+  --secondary: #F3EEFA;
+  --secondary-foreground: #121118;
+
+  /* Muted & Accents */
+  --muted: #F0ECF6;
+  --muted-foreground: #6B6578;
+  --accent: #E9E1F7;
+  --accent-foreground: #121118;
+
+  /* Bordures et entrées */
+  --border: #E8E2F2;
+  --input: #E8E2F2;
+  --ring: #B8A1FF;
+
+  /* VIOLET LILAS SIGNATURE (Remplace le doré pour le thème Noir & Violet) */
+  --gold: #B8A1FF;
+  --violet: #B8A1FF;
+  --violet-light: #DDD1FE;
+  --violet-glow: rgba(184, 161, 255, 0.25);
+
+  --destructive: oklch(0.577 0.245 27.325);
+}
+
+.dark {
+  --background: #0B0B0E;
+  --foreground: #F5F3FF;
+  --card: #131219;
+  --card-foreground: #F5F3FF;
+  --popover: #131219;
+  --popover-foreground: #F5F3FF;
+  --primary: #B8A1FF;
+  --primary-foreground: #0B0B0E;
+  --secondary: #1C1926;
+  --secondary-foreground: #F5F3FF;
+  --muted: #1A1824;
+  --muted-foreground: #9D96AC;
+  --accent: #262235;
+  --accent-foreground: #F5F3FF;
+  --border: rgba(184, 161, 255, 0.14);
+  --input: rgba(184, 161, 255, 0.18);
+  --ring: #B8A1FF;
+  --gold: #B8A1FF;
+  --violet: #B8A1FF;
+  --violet-light: #DDD1FE;
+  --violet-glow: rgba(184, 161, 255, 0.35);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: #B8A1FF;
+    color: #0B0B0E;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 32s linear infinite;
+  }
+
+  /* Effet de brillance / aura violette haute couture */
+  .glow-violet {
+    box-shadow: 0 0 35px -5px rgba(184, 161, 255, 0.3);
+  }
+
+  .glow-violet-sm {
+    box-shadow: 0 0 15px -2px rgba(184, 161, 255, 0.2);
+  }
+
+  /* Style bouton pillule signature */
+  .btn-pill-violet {
+    background-color: #B8A1FF;
+    color: #0B0B0E;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-pill-violet:hover {
+    background-color: #A78BFA;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -2px rgba(184, 161, 255, 0.35);
+  }
+}

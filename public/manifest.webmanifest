@@ -1,0 +1,17 @@
+{
+  "name": "Boutique Amanda.ZD",
+  "short_name": "Amanda.ZD",
+  "description": "Vêtements féminins élégants, livrés dans le monde entier.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7EF",
+  "theme_color": "#1B1813",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
